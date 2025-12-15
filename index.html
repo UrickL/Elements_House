@@ -4,7 +4,55 @@
 	<title>Elements - Sistema de Casas - IPEN </title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	
+	<style>
+        /* O contêiner dos fogos deve cobrir toda a tela */
+        .fireworks-container {
+            position: fixed; /* Fixa na tela */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000; /* Fundo escuro para destacar os fogos */
+            z-index: -1; /* Garante que fique atrás de outros elementos */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="fireworks-container"></div>
+
+    <h1>Feliz Aniversário!</h1>
+    <p>Os fogos de artifício estão explodindo!</p>
+
+    <script src="https://cdn.jsdelivr.net/npm/fireworks-js@2.x/dist/index.umd.js"></script>
+
+    <script>
+        // Seleciona o elemento contêiner
+        const container = document.querySelector('.fireworks-container');
+
+        // Cria uma nova instância de Fireworks, passando o contêiner
+        const fireworks = new Fireworks.default(container, {
+            autoresize: true, // Redimensiona automaticamente
+            opacity: 0.9,     // Ajuste a opacidade
+            acceleration: 1.05,
+            friction: 0.97,
+            gravity: 1.5,
+            particles: 50,    // Quantidade de partículas
+            traceLength: 3,
+            traceSpeed: 10,
+            explosion: 5,
+            intensity: 30,
+            flickering: 50,
+            lineStyle: 'round',
+            hue: { min: 0, max: 360 }, // Cores variadas
+            delay: { min: 30, max: 60 },
+            rocketsPoint: { min: 50, max: 50 },
+            // ... outras opções
+        });
+
+        // Inicia o show de fogos de artifício
+        fireworks.start();
+    </script>
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700,800&display=swap" rel="stylesheet">
 
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
